@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <title>My app</title>
+<title>My app</title>
   <script src="main.js"></script>
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -13,12 +11,22 @@
 
 <body>
   <button type="button" class="btn btn-primary btn-lg" onclick="main()">Run</button>
+  
   <ul class="list-group" id="myList">Results:</ul>
+  
+  <ul id = "pages" class="pagination">
+    <li class = "active"><a href="#" onclick='outputResults(1,10)'>1</a></li>
+    <li><a href="#" onclick='outputResults(11,20)'>2</a></li>
+    <li><a href="#" onclick='outputResults(21,30)'>3</a></li>
+    <li><a href="#" onclick='outputResults(31,40)'>4</a></li>
+    <li><a href="#" onclick='outputResults(41,50)'>5</a></li>
+    <li><a href="#" onclick='outputResults(51,60)'>6</a></li>
+    <li><a href="#" onclick='outputResults(61,70)'>7</a></li>
+    <li><a href="#" onclick='outputResults(71,80)'>8</a></li>
+    <li><a href="#" onclick='outputResults(81,90)'>9</a></li>
+    <li><a href="#" onclick='outputResults(91,100)'>10</a></li>
+  </ul>
+  
+  
 </body>
-  
-  
-  
-  
-  
-  
-  
+</html>

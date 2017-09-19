@@ -1,9 +1,11 @@
+var results = [];
+
 function firstBall(safe, unsafe, steps) {
   this.safe = safe;
   this.steps = steps;
   this.unsafe = unsafe;
 }
-  
+
 function firstThrow(firstStep, floor) {
   var isFirstBallSafe = true, currentStep = firstStep, currentFloor =0, firstResult = new firstBall();
   firstResult.steps = 0;
@@ -36,10 +38,22 @@ function secondThrow(safe, unsafe, floor) {
     } 
   }
   return steps;
+}    
+
+function outputResults(first, last) {
+  document.getElementById("myList").innerHTML = "";
+  var myResult = document.getElementById('myList');
+  for (var i = first;i<last+1; i++) {
+    var newResult = document.createElement('li');
+    newResult.setAttribute("class", "list-group-item");
+    newResult.appendChild(document.createTextNode("#" + i + " = " + results[i]));
+    myResult.appendChild(newResult);
+  }
+    
 }
     
-    
 function main() {
+  results[0] = 0;
   var totalSteps = 0; 
   var firstStep = 14;
   var myBall = new firstBall;
@@ -51,12 +65,14 @@ function main() {
     }
     totalSteps += myBall.steps; 
     totalSteps += secondThrow(myBall.safe, myBall.unsafe, i);
-    var myResult = document.getElementById('myList');
+    results[i] = totalSteps;
+    /*var myResult = document.getElementById('myList');
     var newResult = document.createElement('li');
     newResult.setAttribute("class", "list-group-item");
     newResult.appendChild(document.createTextNode("#" + i + " = " + totalSteps));
-    myResult.appendChild(newResult);
+    myResult.appendChild(newResult);*/
   }
+  outputResults(1,10);
 }
   
   
