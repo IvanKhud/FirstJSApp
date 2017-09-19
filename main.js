@@ -40,8 +40,6 @@ function secondThrow(safe, unsafe, floor) {
     
     
 function main() {
-  var output = document.getElementById("output");
-  output.innerHTML = "";
   var totalSteps = 0; 
   var firstStep = 14;
   var myBall = new firstBall;
