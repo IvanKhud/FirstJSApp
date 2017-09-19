@@ -53,7 +53,11 @@ function main() {
     }
     totalSteps += myBall.steps; 
     totalSteps += secondThrow(myBall.safe, myBall.unsafe, i);
-    output.innerHTML += ("#" + i + " = " + totalSteps + "<br/>");
+    var myResult = document.getElementById('myList');
+    var newResult = document.createElement('li');
+    newResult.setAttribute("class", "list-group-item");
+    newResult.appendChild(document.createTextNode("#" + i + " = " + totalSteps));
+    myResult.appendChild(newResult);
   }
 }
   
