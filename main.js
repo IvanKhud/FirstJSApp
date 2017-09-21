@@ -74,8 +74,7 @@ function main() {
   }
   outputResults(1,10);
 }
-  
-// test
+
   
   
   
