@@ -42,6 +42,7 @@ function secondThrow(safe, unsafe, floor) {
 
 function outputResults(first, last) {
   document.getElementById("myList").innerHTML = "";
+  document.getElementById("myList").innerHTML = "";
   var myResult = document.getElementById('myList');
   for (var i = first;i<last+1; i++) {
     var newResult = document.createElement('li');
@@ -53,6 +54,7 @@ function outputResults(first, last) {
 }
     
 function main() {
+  document.getElementById("pages").style.visibility = "visible";
   results[0] = 0;
   var totalSteps = 0; 
   var firstStep = 14;
@@ -75,6 +77,9 @@ function main() {
   outputResults(1,10);
 }
 
+window.onload = function() {
+  document.getElementById("pages").style.visibility = "hidden";
+}
   
   
   
