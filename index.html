@@ -12,11 +12,13 @@
 <body>
 
   <div class ="container fluid-header">
-    <button type="button" class="btn btn-primary btn-lg" onclick="main()">Run</button>
+    <img class="logo" src="img/balls.jpg" alt="balls">
+    <h3>How many attempts can we determine on which floor the balls start to break?</h3> 
+    <button type="button" class="btn btn-primary btn-md" onclick="main()">Run</button>
   </div>
 
   <div class="container generalContainer">
-    <ul class="list-group" id="myList">Results:</ul>  
+    <ul class="list-group" id="myList"></ul>  
     <ul id = "pages" class="pagination">
       <li><a href="#" onclick='outputResults(1,10)'>1</a></li>
       <li><a href="#" onclick='outputResults(11,20)'>2</a></li>
