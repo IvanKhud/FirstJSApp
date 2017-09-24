@@ -1,4 +1,12 @@
 .logo {
-    height: 57px;
-    margin-top: 1px;
+  position: relative;
+  height: 57px;
+  margin-top: 1px;
+}
+
+.headerContainer, .generalContainer, .pages {
+  position: relative;
+  margin: auto;
+  width: 520px;
+  border: 1px solid #f7f7f9;
 }
