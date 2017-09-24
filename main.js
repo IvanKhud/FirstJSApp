@@ -42,12 +42,17 @@ function secondThrow(safe, unsafe, floor) {
 
 function outputResults(first, last) {
   document.getElementById("myList").innerHTML = "";
-  document.getElementById("myList").innerHTML = "";
   var myResult = document.getElementById('myList');
+
+  var listHead = document.createElement('h5');
+  listHead.setAttribute("class", "list-group-item-heading");
+  listHead.appendChild(document.createTextNode("Floor ---> Attempts_count"));
+  myResult.appendChild(listHead);
+
   for (var i = first;i<last+1; i++) {
     var newResult = document.createElement('li');
     newResult.setAttribute("class", "list-group-item");
-    newResult.appendChild(document.createTextNode("#" + i + " = " + results[i]));
+    newResult.appendChild(document.createTextNode("#" + i + " ---> " + results[i]));
     myResult.appendChild(newResult);
   }
     
@@ -68,11 +73,6 @@ function main() {
     totalSteps += myBall.steps; 
     totalSteps += secondThrow(myBall.safe, myBall.unsafe, i);
     results[i] = totalSteps;
-    /*var myResult = document.getElementById('myList');
-    var newResult = document.createElement('li');
-    newResult.setAttribute("class", "list-group-item");
-    newResult.appendChild(document.createTextNode("#" + i + " = " + totalSteps));
-    myResult.appendChild(newResult);*/
   }
   outputResults(1,10);
 }
