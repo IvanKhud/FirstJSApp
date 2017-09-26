@@ -1,13 +1,7 @@
 var results = [];
 
-function firstBall(safe, unsafe, steps) {
-  this.safe = safe;
-  this.steps = steps;
-  this.unsafe = unsafe;
-}
-
 function firstThrow(firstStep, floor) {
-  var isFirstBallSafe = true, currentStep = firstStep, currentFloor =0, firstResult = new firstBall();
+  var isFirstBallSafe = true, currentStep = firstStep, currentFloor =0, firstResult = new Ball();
   firstResult.steps = 0;
   firstResult.safe = 0;
   while (isFirstBallSafe && (currentFloor < 99)) {
@@ -39,36 +33,13 @@ function secondThrow(safe, unsafe, floor) {
   }
   return steps;
 }    
-
-  function outputResults(first, last) {
-  var tableString = "<table class ='table table-bordered'>",
-    body = document.getElementById('output'),
-    div = document.createElement('div');
-  body.innerHTML = "";
-  tableString += "<thead>";
-  tableString += "<th>" + "Floor" + "</th>";
-  tableString += "<th>" + "Attempts count" + "</th>";
-  tableString += "</thead>";
-  tableString += "<tbody>";
-  for (i = first; i <= last; i ++) {
-    tableString += "<tr>";
-    tableString += "<td>" + i + "</td>";
-    tableString += "<td>" + results[i] + "</td>";
-    tableString += "</tr>";
-  }
-  tableString += "</tbody>";
-  tableString += "</table>";
-  div.innerHTML = tableString;
-  output.appendChild(div);
-
-}
     
 function main() {
   document.getElementById("pages").style.visibility = "visible";
   results[0] = 0;
   var totalSteps = 0; 
   var firstStep = 14;
-  var myBall = new firstBall;
+  var myBall = new Ball;
   for (var i = 1; i < 101; i++) {
     totalSteps = 0;
     myBall = firstThrow(firstStep, i);
@@ -82,11 +53,6 @@ function main() {
   outputResults(1,10);
 }
 
-window.onload = function() {
-  document.getElementById("pages").style.visibility = "hidden";
-}
-  
-  
   
   
   
