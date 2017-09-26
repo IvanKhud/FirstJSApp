@@ -40,22 +40,27 @@ function secondThrow(safe, unsafe, floor) {
   return steps;
 }    
 
-function outputResults(first, last) {
-  document.getElementById("myList").innerHTML = "";
-  var myResult = document.getElementById('myList');
-
-  var listHead = document.createElement('h5');
-  listHead.setAttribute("class", "list-group-item-heading");
-  listHead.appendChild(document.createTextNode("Floor ---> Attempts_count"));
-  myResult.appendChild(listHead);
-
-  for (var i = first;i<last+1; i++) {
-    var newResult = document.createElement('li');
-    newResult.setAttribute("class", "list-group-item");
-    newResult.appendChild(document.createTextNode("#" + i + " ---> " + results[i]));
-    myResult.appendChild(newResult);
+  function outputResults(first, last) {
+  var tableString = "<table class ='table table-bordered'>",
+    body = document.getElementById('output'),
+    div = document.createElement('div');
+  body.innerHTML = "";
+  tableString += "<thead>";
+  tableString += "<th>" + "Floor" + "</th>";
+  tableString += "<th>" + "Attempts count" + "</th>";
+  tableString += "</thead>";
+  tableString += "<tbody>";
+  for (i = first; i <= last; i ++) {
+    tableString += "<tr>";
+    tableString += "<td>" + i + "</td>";
+    tableString += "<td>" + results[i] + "</td>";
+    tableString += "</tr>";
   }
-    
+  tableString += "</tbody>";
+  tableString += "</table>";
+  div.innerHTML = tableString;
+  output.appendChild(div);
+
 }
     
 function main() {
