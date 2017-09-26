@@ -31,3 +31,11 @@
   margin-top: 10px;
   margin-left: 20%;
 }
+
+#output {
+  width: 10%;
+}
+
+th, td {
+  text-align: center;
+}
