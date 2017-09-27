@@ -33,8 +33,10 @@ function secondThrow(safe, unsafe, floor) {
 }    
     
 function main() {
-  document.getElementById("pages").style.visibility = "visible";
   dom.results[0] = 0;
+  dom.maxRowsPerPage = 5;
+  dom.firstVisibleRow = 1;
+  dom.lastVisibleRow = 5;
   var totalSteps = 0; 
   var firstStep = 14;
   var myBall = new Ball;
@@ -48,7 +50,7 @@ function main() {
     totalSteps += secondThrow(myBall.safe, myBall.unsafe, i);
     dom.results[i] = totalSteps;
   }
-  outputResults(1,10);
+  outputResults(dom.firstVisibleRow, dom.lastVisibleRow);
 }
 
   

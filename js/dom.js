@@ -1,9 +1,11 @@
 var dom = {
   results: [],
-  maxRowsPerPage: 5,
   firstVisibleRow: 1,
-  lastVisibleRow: 5
+  lastVisibleRow: 5,
+  maxRowsPerPage: 5
 } 
+
+window.onload = main;
 
 function outputResults(first, last) {
   var tableString = "<table class ='table table-bordered'>",
@@ -27,6 +29,38 @@ function outputResults(first, last) {
   output.appendChild(div);
 }
 
-window.onload = function() {
-  document.getElementById("pages").style.visibility = "hidden";
+function maxRowsPerPageOnChange() {
+    var x = parseInt(document.getElementById("maxRowsPerPage").value);
+    dom.firstVisibleRow = 1;
+    dom.lastVisibleRow = x;
+    dom.maxRowsPerPage = x;
+    outputResults(dom.firstVisibleRow, dom.lastVisibleRow);
+}
+
+  
+function buttonFirstClick() {
+  dom.firstVisibleRow = 1;
+  dom.lastVisibleRow = dom.maxRowsPerPage;
+  outputResults(dom.firstVisibleRow, dom.lastVisibleRow);
+}
+
+
+function buttonPreviousClick() {
+  dom.firstVisibleRow -= dom.maxRowsPerPage;
+  dom.lastVisibleRow = dom.firstVisibleRow + dom.maxRowsPerPage;
+  outputResults(dom.firstVisibleRow, dom.lastVisibleRow);
+}
+
+
+function buttonNextClick() {
+  dom.firstVisibleRow += dom.maxRowsPerPage;
+  dom.lastVisibleRow = dom.firstVisibleRow + dom.maxRowsPerPage;
+  outputResults(dom.firstVisibleRow, dom.lastVisibleRow);
+}  
+
+
+function buttonLastClick() {
+  dom.firstVisibleRow = 101 - dom.maxRowsPerPage;
+  dom.lastVisibleRow = 100;
+  outputResults(dom.firstVisibleRow, dom.lastVisibleRow);
 }
