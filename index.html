@@ -13,7 +13,7 @@
 
 <body>
 
-  <div class="container headerContainer">
+  <div class="header">
     <div class="head">
       <img class="logo" src="img/balls.jpg" alt="balls">
     </div>
@@ -24,8 +24,16 @@
   
 
   <div class="container generalContainer">
-    <div id="output"></div>
-    
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Floor</th>
+          <th>Attempts count</th>
+        </tr>
+      </thead>
+      <tbody id="generalTable">
+      </tbody>  
+    </table>
     <div id="pages">
       <ul class="pagination pagination-info" id="pagination">
         <li id="buttonFirst"><a href='#' onclick='navButtonClick("first")'>First</a></li>
@@ -34,20 +42,25 @@
         <li id="buttonLast"><a href='#' onclick='navButtonClick("last")'>Last</a></li>
       </ul>
     </div>
-  </div>
-
-  <div class="container maxRowsPerPageForm">
-     <p>Max rows per page</p>
-     <select class="form-control" id="maxRowsPerPage" onchange="maxRowsPerPageOnChange()">	
-       <option value=5>5</option>
-       <option value=10>10</option>
-       <option value=20>20</option>
-       <option value=100>all</option>
-     </select>
+    <p>Max rows per page</p>
+    <select class="form-control" id="maxRowsPerPage" onchange="maxRowsPerPageOnChange()">	
+      <option value=5>5</option>
+      <option value=10>10</option>
+      <option value=20>20</option>
+      <option value=100>all</option>
+    </select>
   </div>
 
   <div class="container statisticsContainer">
-    <div id="statistics"></div>
+     <table class="table table-bordered">
+       <thead>
+         <tr>
+           <th colspan='2'>Statistics</th>
+         </tr>
+       </thead>
+       <tbody id="statisticsTable">
+       </tbody>  
+     </table>
     <button type="button" class="btn btn-primary btn-md" onclick="main()">Run</button>
   </div>
   

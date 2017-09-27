@@ -3,19 +3,17 @@
   margin: 0;
 }
 
+.header {
+  height: 60px;
+}
+
+.head {
+  display: inline-block;
+}
+
 .logo {
   position: relative;
   height: 50px;
-}
-
-.container{
-  position: relative;
-  margin-top: 10px;
-  margin-top: 10px;
-}
-
-.headerContainer {
-  height: 60px;
 }
 
 .h3 {
@@ -23,21 +21,23 @@
   margin-top: 10px;
 }
 
-.head {
+.container {
+  position: relative;
+  margin-top: 10px;
+  border: 2px solid black;
+  width: 100px;
+  display: inline-block;
+}
+
+
+.table {
+  position: relative;
+  width: 50px;
   display: inline-block;
 }
 
 #maxRowsPerPage {
-  width: 8%;
-}
-
-#run {
-  margin-top: 10px;
-  margin-left: 20%;
-}
-
-#output {
-  width: 10%;
+  width: 7%;
 }
 
 th, td {

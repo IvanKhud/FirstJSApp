@@ -11,37 +11,22 @@ var dom = {
 window.onload = main;
 
 function outputResults(first, last) {
-  var tableString = "<table class ='table table-bordered'>",
-    body = document.getElementById('output'),
-    div = document.createElement('div');
-  body.innerHTML = "";
-  tableString += "<thead>";
-  tableString += "<th>" + "Floor" + "</th>";
-  tableString += "<th>" + "Attempts count" + "</th>";
-  tableString += "</thead>";
-  tableString += "<tbody>";
+  var tableString = "";
+  document.getElementById('generalTable').innerHTML = "";
   for (i = first; i <= last; i ++) {
     tableString += "<tr>";
     tableString += "<td>" + i + "</td>";
     tableString += "<td>" + dom.results[i] + "</td>";
     tableString += "</tr>";
   }
-  tableString += "</tbody>";
-  tableString += "</table>";
-  div.innerHTML = tableString;
-  output.appendChild(div);
+  document.getElementById('generalTable').innerHTML = tableString;
   outputStatistics();
 }
 
 function outputStatistics() {
-  var tableString = "<table class ='table table-bordered'>"
-  body = document.getElementById('statistics'),
-  div = document.createElement('div');
-  body.innerHTML = "";
-  tableString += "<thead>";
-  tableString += "<th colspan='2'>" + "Statistics" + "</th>";
-  tableString += "</thead>";
-  tableString += "<tbody>";
+  var tableString = "";
+  document.getElementById('statisticsTable').innerHTML = "";
+
   tableString += "<tr>";
   tableString += "<td>" + 'Minimum' + "</td>";
   tableString += "<td>" + dom.minThrows + "</td>";
@@ -54,10 +39,8 @@ function outputStatistics() {
   tableString += "<td>" + 'Average' + "</td>";
   tableString += "<td>" + dom.averageThrows + "</td>";
   tableString += "</tr>";
-  tableString += "</tbody>";
-  tableString += "</table>";
-  div.innerHTML = tableString;
-  output.appendChild(div);
+ 
+  document.getElementById('statisticsTable').innerHTML = tableString;
 
 }
 
