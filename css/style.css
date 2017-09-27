@@ -27,6 +27,10 @@
   display: inline-block;
 }
 
+#maxRowsPerPage {
+  width: 5%;
+}
+
 #run {
   margin-top: 10px;
   margin-left: 20%;
