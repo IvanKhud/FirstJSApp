@@ -1,5 +1,3 @@
-var results = [];
-
 function firstThrow(firstStep, floor) {
   var isFirstBallSafe = true, currentStep = firstStep, currentFloor =0, firstResult = new Ball();
   firstResult.steps = 0;
@@ -36,7 +34,7 @@ function secondThrow(safe, unsafe, floor) {
     
 function main() {
   document.getElementById("pages").style.visibility = "visible";
-  results[0] = 0;
+  dom.results[0] = 0;
   var totalSteps = 0; 
   var firstStep = 14;
   var myBall = new Ball;
@@ -48,7 +46,7 @@ function main() {
     }
     totalSteps += myBall.steps; 
     totalSteps += secondThrow(myBall.safe, myBall.unsafe, i);
-    results[i] = totalSteps;
+    dom.results[i] = totalSteps;
   }
   outputResults(1,10);
 }

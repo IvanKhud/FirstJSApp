@@ -1,3 +1,10 @@
+var dom = {
+  results: [],
+  maxRowsPerPage: 5,
+  firstVisibleRow: 1,
+  lastVisibleRow: 5
+} 
+
 function outputResults(first, last) {
   var tableString = "<table class ='table table-bordered'>",
     body = document.getElementById('output'),
@@ -11,7 +18,7 @@ function outputResults(first, last) {
   for (i = first; i <= last; i ++) {
     tableString += "<tr>";
     tableString += "<td>" + i + "</td>";
-    tableString += "<td>" + results[i] + "</td>";
+    tableString += "<td>" + dom.results[i] + "</td>";
     tableString += "</tr>";
   }
   tableString += "</tbody>";
