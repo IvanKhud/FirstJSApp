@@ -1,5 +1,8 @@
 var dom = {
   results: [],
+  maxThrows: 0,
+  minThrows: 100,
+  averageThrows: 0,
   firstVisibleRow: 1,
   lastVisibleRow: 5,
   maxRowsPerPage: 5
@@ -27,6 +30,35 @@ function outputResults(first, last) {
   tableString += "</table>";
   div.innerHTML = tableString;
   output.appendChild(div);
+  outputStatistics();
+}
+
+function outputStatistics() {
+  var tableString = "<table class ='table table-bordered'>"
+  body = document.getElementById('statistics'),
+  div = document.createElement('div');
+  body.innerHTML = "";
+  tableString += "<thead>";
+  tableString += "<th colspan='2'>" + "Statistics" + "</th>";
+  tableString += "</thead>";
+  tableString += "<tbody>";
+  tableString += "<tr>";
+  tableString += "<td>" + 'Minimum' + "</td>";
+  tableString += "<td>" + dom.minThrows + "</td>";
+  tableString += "</tr>";
+  tableString += "<tr>";
+  tableString += "<td>" + 'Maximum' + "</td>";
+  tableString += "<td>" + dom.maxThrows + "</td>";
+  tableString += "</tr>";
+  tableString += "<tr>";
+  tableString += "<td>" + 'Average' + "</td>";
+  tableString += "<td>" + dom.averageThrows + "</td>";
+  tableString += "</tr>";
+  tableString += "</tbody>";
+  tableString += "</table>";
+  div.innerHTML = tableString;
+  output.appendChild(div);
+
 }
 
 function maxRowsPerPageOnChange() {
