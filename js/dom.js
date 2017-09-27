@@ -37,30 +37,25 @@ function maxRowsPerPageOnChange() {
     outputResults(dom.firstVisibleRow, dom.lastVisibleRow);
 }
 
+function navButtonClick(direction) {
+  switch (direction){
+    case 'first':
+      dom.firstVisibleRow = 1;
+      dom.lastVisibleRow = dom.maxRowsPerPage;
+      break;
+    case 'previous':
+      dom.firstVisibleRow -= dom.maxRowsPerPage;
+      dom.lastVisibleRow -= dom.maxRowsPerPage;
+      break;
+    case 'next':
+       dom.firstVisibleRow += dom.maxRowsPerPage;
+       dom.lastVisibleRow += dom.maxRowsPerPage;
+       break;
+    case 'last':
+      dom.firstVisibleRow = 101 - dom.maxRowsPerPage;
+      dom.lastVisibleRow = 100;
+      break;
+  }
   
-function buttonFirstClick() {
-  dom.firstVisibleRow = 1;
-  dom.lastVisibleRow = dom.maxRowsPerPage;
-  outputResults(dom.firstVisibleRow, dom.lastVisibleRow);
-}
-
-
-function buttonPreviousClick() {
-  dom.firstVisibleRow -= dom.maxRowsPerPage;
-  dom.lastVisibleRow = dom.firstVisibleRow + dom.maxRowsPerPage;
-  outputResults(dom.firstVisibleRow, dom.lastVisibleRow);
-}
-
-
-function buttonNextClick() {
-  dom.firstVisibleRow += dom.maxRowsPerPage;
-  dom.lastVisibleRow = dom.firstVisibleRow + dom.maxRowsPerPage;
-  outputResults(dom.firstVisibleRow, dom.lastVisibleRow);
-}  
-
-
-function buttonLastClick() {
-  dom.firstVisibleRow = 101 - dom.maxRowsPerPage;
-  dom.lastVisibleRow = 100;
   outputResults(dom.firstVisibleRow, dom.lastVisibleRow);
 }
