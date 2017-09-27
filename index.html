@@ -13,7 +13,7 @@
 
 <body>
 
-  <div class="header">
+  <div class="container fluid-header">
     <div class="head">
       <img class="logo" src="img/balls.jpg" alt="balls">
     </div>
@@ -22,9 +22,10 @@
     </div> 
   </div>
   
-
   <div class="container generalContainer">
-    <table class="table table-bordered">
+
+  <div class="mainContent"> 
+    <table class="table table-bordered mainTable">
       <thead>
         <tr>
           <th>Floor</th>
@@ -34,6 +35,7 @@
       <tbody id="generalTable">
       </tbody>  
     </table>
+
     <div id="pages">
       <ul class="pagination pagination-info" id="pagination">
         <li id="buttonFirst"><a href='#' onclick='navButtonClick("first")'>First</a></li>
@@ -42,6 +44,8 @@
         <li id="buttonLast"><a href='#' onclick='navButtonClick("last")'>Last</a></li>
       </ul>
     </div>
+
+    <div class="maxRowsPerPageForm">
     <p>Max rows per page</p>
     <select class="form-control" id="maxRowsPerPage" onchange="maxRowsPerPageOnChange()">	
       <option value=5>5</option>
@@ -49,20 +53,26 @@
       <option value=20>20</option>
       <option value=100>all</option>
     </select>
+    </div>
+
   </div>
 
-  <div class="container statisticsContainer">
-     <table class="table table-bordered">
-       <thead>
-         <tr>
-           <th colspan='2'>Statistics</th>
-         </tr>
-       </thead>
-       <tbody id="statisticsTable">
-       </tbody>  
-     </table>
-    <button type="button" class="btn btn-primary btn-md" onclick="main()">Run</button>
+  <div class="rightSidebar">
+    <table class="table table-bordered rightTable">
+      <thead>
+        <tr>
+          <th colspan='2'>Statistics</th>
+        </tr>
+      </thead>
+      <tbody id="statisticsTable">
+      </tbody>  
+    </table>
+    <button type="button" class="btn btn-primary btn-block" onclick="main()">Run</button>
   </div>
+
+  </div>
+
+
   
 </body>
 </html>

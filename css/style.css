@@ -3,12 +3,16 @@
   margin: 0;
 }
 
-.header {
+.head {
   height: 60px;
+  float: center;
+  display: inline-block;
 }
 
-.head {
-  display: inline-block;
+.fluid-header {
+  background-color: #f7f7f9;
+  border: solid rgba(0, 0, 0, 0.07);
+  border-width: 1px;
 }
 
 .logo {
@@ -21,25 +25,70 @@
   margin-top: 10px;
 }
 
-.container {
+.generalContainer {
   position: relative;
-  margin-top: 10px;
-  border: 2px solid black;
-  width: 100px;
-  display: inline-block;
 }
 
-
-.table {
+.mainContent,
+.rightSidebar {
   position: relative;
-  width: 50px;
   display: inline-block;
+  background-color: #f7f7f9;
+  border: solid rgba(0, 0, 0, 0.07);
+  border-width: 1px;
+  border-radius: 5px;
+  margin-top: 8px;
+  padding: 10px;
+}
+
+.mainContent {
+  width: 320px;
+}
+
+.rightSidebar {
+  width: 200px;
+}
+
+.mainTable, .rightTable {
+  background-color: white;
+  text-align: center;
+}
+
+.mainTable {
+  width: 300px;
+}
+
+.mainTable th,
+.rightTable th {
+  text-align: center;
+}
+
+.maxRowsPerPageForm {
+  position: relative;
+  height: 32px;
+  margin-top: 3px;
+}
+
+.maxRowsPerPageForm p {
+  float: left;
+  margin-right: 5px;
+  margin-top: 5px;
 }
 
 #maxRowsPerPage {
-  width: 7%;
+  width: 70px;
+  height: 30px;
+  font-size: 14px;
 }
 
-th, td {
-  text-align: center;
+#pagination {
+  margin-left: 24px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+#pagination li {
+  color: #fff;
+  background-color: #5bc0de;
+  border-color: #ddd;
 }
