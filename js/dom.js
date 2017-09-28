@@ -13,7 +13,8 @@ window.onload = main;
 function buttonPush() {
  var button1 = document.getElementById('mainBtn');
  if (button1.innerHTML == 'Start') {
-   outputResults(dom.firstVisibleRow, dom.lastVisibleRow);
+   document.getElementById("maxRowsPerPage").value = 5;
+   main();
    button1.innerHTML = 'Reset';
    button1.className = 'btn btn-warning btn-block';
  }
@@ -61,37 +62,47 @@ function outputStatistics() {
 }
 
 function maxRowsPerPageOnChange() {
-    var x = parseInt(document.getElementById("maxRowsPerPage").value);
-    dom.firstVisibleRow = 1;
-    dom.lastVisibleRow = x;
-    dom.maxRowsPerPage = x;
+    dom.maxRowsPerPage = parseInt(document.getElementById("maxRowsPerPage").value);
+    if ((dom.firstVisibleRow + dom.maxRowsPerPage) > 100) {
+      dom.lastVisibleRow = 100;
+      dom.firstVisibleRow = 101 - dom.maxRowsPerPage;
+    }
+      else {
+        dom.lastVisibleRow = dom.firstVisibleRow + dom.maxRowsPerPage - 1;
+      } 
     outputResults(dom.firstVisibleRow, dom.lastVisibleRow);
 }
 
 function navButtonClick(direction) {
-  switch (direction){
+  switch (direction) {
     case 'first':
       dom.firstVisibleRow = 1;
       dom.lastVisibleRow = dom.maxRowsPerPage;
       break;
     case 'previous':
       dom.firstVisibleRow -= dom.maxRowsPerPage;
-      dom.lastVisibleRow -= dom.maxRowsPerPage;
+      if (dom.firstVisibleRow < 1) {
+        dom.firstVisibleRow = 1;
+      };  
+      dom.lastVisibleRow = dom.firstVisibleRow + dom.maxRowsPerPage - 1;
       break;
     case 'next':
-       dom.firstVisibleRow += dom.maxRowsPerPage;
-       dom.lastVisibleRow += dom.maxRowsPerPage;
-       break;
-    case 'last':
-      dom.firstVisibleRow = 101 - dom.maxRowsPerPage;
-      dom.lastVisibleRow = 100;
+      dom.lastVisibleRow += dom.maxRowsPerPage;
+      if (dom.lastVisibleRow > 100) {
+        dom.lastVisibleRow = 100;
+      };     
+      dom.firstVisibleRow = dom.lastVisibleRow - dom.maxRowsPerPage + 1;
       break;
-  }
+    case 'last':
+      dom.lastVisibleRow = 100;
+      dom.firstVisibleRow = 101 - dom.maxRowsPerPage;
+      break;
+  };
   outputResults(dom.firstVisibleRow, dom.lastVisibleRow);
 }
 
 function checkButtons(){
-  if (dom.firstVisibleRow < dom.maxRowsPerPage) {
+  if (dom.firstVisibleRow == 1) {
     document.getElementById("buttonFirst").className = "disabled";
     document.getElementById("buttonPrevious").className = "disabled";
   }
@@ -99,7 +110,7 @@ function checkButtons(){
     document.getElementById("buttonFirst").className = "unDisabled";
     document.getElementById("buttonPrevious").className = "unDisabled";
   };
-  if ((dom.firstVisibleRow + dom.maxRowsPerPage) >= 100) {
+  if (dom.lastVisibleRow == 100) {
     document.getElementById("buttonNext").className = "disabled";
     document.getElementById("buttonLast").className = "disabled";
   }
