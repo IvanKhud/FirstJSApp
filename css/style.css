@@ -66,6 +66,7 @@
 .maxRowsPerPageForm {
   position: relative;
   height: 32px;
+  margin-left: 40px;
   margin-top: 3px;
 }
 
