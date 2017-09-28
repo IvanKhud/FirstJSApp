@@ -13,12 +13,14 @@ window.onload = main;
 function buttonPush() {
  var button1 = document.getElementById('mainBtn');
  if (button1.innerHTML == 'Start') {
-   document.getElementById("maxRowsPerPage").value = 5;
+   document.getElementById("maxRowsPerPage").style.visibility = 'visible';
    main();
    button1.innerHTML = 'Reset';
    button1.className = 'btn btn-warning btn-block';
  }
    else {
+     document.getElementById("maxRowsPerPage").value = 5;
+     document.getElementById("maxRowsPerPage").style.visibility = 'hidden';
      document.getElementById('generalTable').innerHTML = ""; 
      document.getElementById('statisticsTable').innerHTML = "";
      button1.innerHTML = 'Start';
