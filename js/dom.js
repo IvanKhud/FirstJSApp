@@ -10,6 +10,21 @@ var dom = {
 
 window.onload = main;
 
+function buttonPush() {
+ var button1 = document.getElementById('mainBtn');
+ if (button1.innerHTML == 'Start') {
+   outputResults(dom.firstVisibleRow, dom.lastVisibleRow);
+   button1.innerHTML = 'Reset';
+   button1.className = 'btn btn-warning btn-block';
+ }
+   else {
+     document.getElementById('generalTable').innerHTML = ""; 
+     document.getElementById('statisticsTable').innerHTML = "";
+     button1.innerHTML = 'Start';
+     button1.className = 'btn btn-success btn-block';
+   }
+} 
+
 function outputResults(first, last) {
   var tableString = "";
   document.getElementById('generalTable').innerHTML = "";
