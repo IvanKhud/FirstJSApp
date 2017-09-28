@@ -21,6 +21,7 @@ function outputResults(first, last) {
   }
   document.getElementById('generalTable').innerHTML = tableString;
   outputStatistics();
+  checkButtons();
 }
 
 function outputStatistics() {
@@ -71,6 +72,25 @@ function navButtonClick(direction) {
       dom.lastVisibleRow = 100;
       break;
   }
-  
   outputResults(dom.firstVisibleRow, dom.lastVisibleRow);
 }
+
+function checkButtons(){
+  if (dom.firstVisibleRow < dom.maxRowsPerPage) {
+    document.getElementById("buttonFirst").className = "disabled";
+    document.getElementById("buttonPrevious").className = "disabled";
+  }
+  else {
+    document.getElementById("buttonFirst").className = "unDisabled";
+    document.getElementById("buttonPrevious").className = "unDisabled";
+  };
+  if ((dom.firstVisibleRow + dom.maxRowsPerPage) >= 100) {
+    document.getElementById("buttonNext").className = "disabled";
+    document.getElementById("buttonLast").className = "disabled";
+  }
+  else {
+    document.getElementById("buttonNext").className = "unDisabled";
+    document.getElementById("buttonLast").className = "unDisabled";
+  };
+}
+
