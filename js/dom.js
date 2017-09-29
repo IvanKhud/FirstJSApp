@@ -8,19 +8,26 @@ var dom = {
   maxRowsPerPage: 5
 } 
 
-window.onload = main;
+window.onload = onStart;
+
+function onStart() {
+  document.getElementById("maxRowsPerPageForm").style.visibility = 'hidden';
+  document.getElementById("pages").style.visibility = 'hidden';
+}
 
 function buttonPush() {
  var button1 = document.getElementById('mainBtn');
  if (button1.innerHTML == 'Start') {
-   document.getElementById("maxRowsPerPage").style.visibility = 'visible';
+   document.getElementById("maxRowsPerPageForm").style.visibility = 'visible';
+   document.getElementById("pages").style.visibility = 'visible';
    main();
    button1.innerHTML = 'Reset';
    button1.className = 'btn btn-warning btn-block';
  }
    else {
      document.getElementById("maxRowsPerPage").value = 5;
-     document.getElementById("maxRowsPerPage").style.visibility = 'hidden';
+     document.getElementById("maxRowsPerPageForm").style.visibility = 'hidden';
+     document.getElementById("pages").style.visibility = 'hidden';
      document.getElementById('generalTable').innerHTML = ""; 
      document.getElementById('statisticsTable').innerHTML = "";
      button1.innerHTML = 'Start';
