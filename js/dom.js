@@ -138,7 +138,7 @@ function myFunction() {
      else {
        document.getElementById("return-to-top").style.display = "none";
      }
-        if (window.pageYOffset < document.body.scrollHeight) {
+        if (window.pageYOffset < (document.body.scrollHeight - document.body.clientHeight - 50)) {
       document.getElementById("return-to-bottom").style.display = "block";
     }
      else {
