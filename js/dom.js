@@ -129,3 +129,27 @@ function checkButtons(){
   };
 }
 
+window.onscroll = function() {myFunction()};
+
+function myFunction() {
+    if (window.pageYOffset > 50) {
+      document.getElementById("return-to-top").style.display = "block";
+    }
+     else {
+       document.getElementById("return-to-top").style.display = "none";
+     }
+        if (window.pageYOffset < document.body.scrollHeight) {
+      document.getElementById("return-to-bottom").style.display = "block";
+    }
+     else {
+       document.getElementById("return-to-bottom").style.display = "none";
+     }
+}
+  
+function toTop() {
+  window.scrollTo(0,0);
+}
+  
+function toBottom() {
+  window.scrollTo(0,document.body.scrollHeight);
+}
