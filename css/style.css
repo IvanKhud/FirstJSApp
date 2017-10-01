@@ -3,30 +3,35 @@
   margin: 0;
 }
 
-.head {
-  height: 60px;
-  float: center;
-  display: inline-block;
-}
-
-.fluid-header {
+.header {
+  position: relative;
   background-color: #f7f7f9;
   border: solid rgba(0, 0, 0, 0.07);
   border-width: 1px;
+  border-radius: 5px;
+  font-size: 25px;
+  height: 65px;
+}
+
+.headerContent {
+  position: relative;
+  margin: auto;
+  width: 520px;
+  border: 1px solid #f7f7f9;
 }
 
 .logo {
   position: relative;
-  height: 50px;
-}
-
-.h3 {
-  position: relative;
-  margin-top: 10px;
+  height: 60px;
+  margin-top: 2px;
+  margin-left: 0px;
+  margin-right: 10px;
+  float: left;
 }
 
 .generalContainer {
   position: relative;
+  width: 600px;
 }
 
 .mainContent,
@@ -42,35 +47,39 @@
 }
 
 .mainContent {
-  width: 320px;
+  width: 550px;
+  float:left;
 }
 
 .rightSidebar {
-  width: 200px;
+  float: right;
+  width: 320px;
 }
 
-.mainTable, .rightTable {
+.mainTable,
+.rightTable {
   background-color: white;
   text-align: center;
+  font-size: 15px;
 }
 
 .mainTable {
-  width: 300px;
+  width: 500px;
 }
 
 .mainTable th,
 .rightTable th {
   text-align: center;
+  font-size: 15px;
 }
 
-.maxRowsPerPageForm {
+#maxRowsPerPageForm {
   position: relative;
   height: 32px;
-  margin-left: 40px;
   margin-top: 3px;
 }
 
-.maxRowsPerPageForm p {
+#maxRowsPerPageForm p {
   float: left;
   margin-right: 5px;
   margin-top: 5px;
@@ -82,16 +91,8 @@
   font-size: 14px;
 }
 
-#pagination {
-  margin-left: 24px;
-  margin-top: 5px;
-  margin-bottom: 0px;
-}
-
-#pagination li {
-  color: #fff;
-  background-color: #5bc0de;
-  border-color: #ddd;
+.rightTable {
+  width: 200px;
 }
 
 .disabled {
@@ -100,7 +101,7 @@
 
 #return-to-top, #return-to-bottom {
     position: fixed;
-    right: 20px;
+    right: 5px;
     background: rgb(0, 0, 0);
     background: rgba(0, 0, 0, 0.7);
     width: 50px;
@@ -115,9 +116,12 @@
 }
 
 #return-to-bottom {
-    top: 50px;  
+    top: 70px;  
 }
 
 #return-to-top {
     bottom: 20px;  
 }
+
+
+

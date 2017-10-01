@@ -80,6 +80,7 @@ function maxRowsPerPageOnChange() {
         dom.lastVisibleRow = dom.firstVisibleRow + dom.maxRowsPerPage - 1;
       } 
     outputResults(dom.firstVisibleRow, dom.lastVisibleRow);
+    document.body.offsetHeight;
 }
 
 function navButtonClick(direction) {
@@ -129,23 +130,23 @@ function checkButtons(){
   };
 }
 
-window.onscroll = function() {myFunction()};
+window.onscroll = function() {onScrollCheck()};
 
-function myFunction() {
+function onScrollCheck() {
     if (window.pageYOffset > 50) {
-      document.getElementById("return-to-top").style.display = "block";
+      document.getElementById("return-to-top").style.display = "inline";
     }
      else {
        document.getElementById("return-to-top").style.display = "none";
      }
         if (window.pageYOffset < (document.body.scrollHeight - document.body.clientHeight - 50)) {
-      document.getElementById("return-to-bottom").style.display = "block";
+      document.getElementById("return-to-bottom").style.display = "inline";
     }
      else {
        document.getElementById("return-to-bottom").style.display = "none";
      }
 }
-  
+
 function toTop() {
   window.scrollTo(0,0);
 }
@@ -154,19 +155,16 @@ function toBottom() {
   window.scrollTo(0,document.body.scrollHeight);
 }
 
-function topBottomButtons() {
-  if (document.body.offsetHeight - document.body.clientHeight > 0) {
-    document.getElementById("return-to-top").style.display = "block";
-    document.getElementById("return-to-bottom").style.display = "block";
-  }
-    else {
-    document.getElementById("return-to-top").style.display = "none";
-    document.getElementById("return-to-bottom").style.display = "none";
-    }
-}
+window.addEventListener("resize", onBodyResize);
 
 function onBodyResize() {
- topBottomButtons();
+  if (document.body.offsetHeight - document.documentElement.clientHeight > 0) {
+    document.getElementById("scrollButtonsPic").style.display = "inline";
+    document.getElementById("return-to-bottom").style.display = "inline";
+  }
+  else {
+    document.getElementById("scrollButtonsPic").style.display = "none";
+    document.getElementById("return-to-bottom").style.display = "none";
+  }
 }
-
 
