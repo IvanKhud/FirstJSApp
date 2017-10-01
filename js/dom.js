@@ -80,6 +80,7 @@ function maxRowsPerPageOnChange() {
         dom.lastVisibleRow = dom.firstVisibleRow + dom.maxRowsPerPage - 1;
       } 
     outputResults(dom.firstVisibleRow, dom.lastVisibleRow);
+    topBottomButtons();
 }
 
 function navButtonClick(direction) {
@@ -153,3 +154,19 @@ function toTop() {
 function toBottom() {
   window.scrollTo(0,document.body.scrollHeight);
 }
+
+function topBottomButtons() {
+  if (document.body.offsetHeight - document.body.clientHeight > 0) {
+    document.getElementById("return-to-top").style.display = "block";
+    document.getElementById("return-to-bottom").style.display = "block";
+  }
+    else {
+    document.getElementById("return-to-top").style.display = "none";
+    document.getElementById("return-to-bottom").style.display = "none";
+    }
+}
+
+
+
+
+
