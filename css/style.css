@@ -14,6 +14,7 @@
 }
 
 .headerContent {
+  float: left;
   position: relative;
   margin: auto;
   width: 520px;
@@ -24,14 +25,14 @@
   position: relative;
   height: 60px;
   margin-top: 2px;
-  margin-left: 0px;
+  margin-left: 60px;
   margin-right: 10px;
   float: left;
 }
 
 .generalContainer {
   position: relative;
-  width: 600px;
+  width: 800px;
 }
 
 .mainContent,
@@ -47,7 +48,7 @@
 }
 
 .mainContent {
-  width: 550px;
+  width: 750px;
   float:left;
 }
 
