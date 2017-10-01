@@ -80,7 +80,6 @@ function maxRowsPerPageOnChange() {
         dom.lastVisibleRow = dom.firstVisibleRow + dom.maxRowsPerPage - 1;
       } 
     outputResults(dom.firstVisibleRow, dom.lastVisibleRow);
-    topBottomButtons();
 }
 
 function navButtonClick(direction) {
@@ -166,7 +165,8 @@ function topBottomButtons() {
     }
 }
 
-
-
+function onBodyResize() {
+ topBottomButtons();
+}
 
 
