@@ -33,6 +33,7 @@ function buttonPush() {
      button1.innerHTML = 'Start';
      button1.className = 'btn btn-success btn-block';
    }
+  onScrollCheck();
 } 
 
 function outputResults(first, last) {
@@ -80,7 +81,7 @@ function maxRowsPerPageOnChange() {
         dom.lastVisibleRow = dom.firstVisibleRow + dom.maxRowsPerPage - 1;
       } 
     outputResults(dom.firstVisibleRow, dom.lastVisibleRow);
-    document.body.offsetHeight;
+    onScrollCheck();
 }
 
 function navButtonClick(direction) {
@@ -158,13 +159,14 @@ function toBottom() {
 window.addEventListener("resize", onBodyResize);
 
 function onBodyResize() {
-  if (document.body.offsetHeight - document.documentElement.clientHeight > 0) {
-    document.getElementById("scrollButtonsPic").style.display = "inline";
-    document.getElementById("return-to-bottom").style.display = "inline";
+  if (document.body.scrollHeight > document.body.clientHeight) {
+    onScrollCheck();
   }
-  else {
-    document.getElementById("scrollButtonsPic").style.display = "none";
-    document.getElementById("return-to-bottom").style.display = "none";
-  }
+    else {
+      document.getElementById("return-to-bottom").style.display = "none";  
+      document.getElementById("return-to-top").style.display = "none"; 
+    }
 }
+
+
 
