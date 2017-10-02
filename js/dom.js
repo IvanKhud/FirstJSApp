@@ -33,7 +33,7 @@ function buttonPush() {
      button1.innerHTML = 'Start';
      button1.className = 'btn btn-success btn-block';
    }
-  onScrollCheck();
+  onBodyResize();
 } 
 
 function outputResults(first, last) {
@@ -48,6 +48,7 @@ function outputResults(first, last) {
   document.getElementById('generalTable').innerHTML = tableString;
   outputStatistics();
   checkButtons();
+  onBodyResize();
 }
 
 function outputStatistics() {
@@ -81,7 +82,7 @@ function maxRowsPerPageOnChange() {
         dom.lastVisibleRow = dom.firstVisibleRow + dom.maxRowsPerPage - 1;
       } 
     outputResults(dom.firstVisibleRow, dom.lastVisibleRow);
-    onScrollCheck();
+    onBodyResize();
 }
 
 function navButtonClick(direction) {
@@ -137,15 +138,15 @@ function onScrollCheck() {
     if (window.pageYOffset > 50) {
       document.getElementById("return-to-top").style.display = "inline";
     }
-     else {
-       document.getElementById("return-to-top").style.display = "none";
-     }
-        if (window.pageYOffset < (document.body.scrollHeight - document.body.clientHeight - 50)) {
+      else {
+        document.getElementById("return-to-top").style.display = "none";
+      }
+    if (window.pageYOffset < (document.body.scrollHeight - document.body.clientHeight - 50)) {
       document.getElementById("return-to-bottom").style.display = "inline";
     }
-     else {
-       document.getElementById("return-to-bottom").style.display = "none";
-     }
+      else {
+        document.getElementById("return-to-bottom").style.display = "none";
+      }
 }
 
 function toTop() {
@@ -160,11 +161,13 @@ window.addEventListener("resize", onBodyResize);
 
 function onBodyResize() {
   if (document.body.scrollHeight > document.body.clientHeight) {
+    document.getElementById("topBottomForm").style.display = "inline"; 
     onScrollCheck();
   }
     else {
       document.getElementById("return-to-bottom").style.display = "none";  
       document.getElementById("return-to-top").style.display = "none"; 
+      document.getElementById("topBottomForm").style.display = "none"; 
     }
 }
 
