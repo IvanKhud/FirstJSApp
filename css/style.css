@@ -17,13 +17,14 @@
   float: left;
   position: relative;
   margin: auto;
+  margin-left: 80px;
   width: 520px;
   border: 1px solid #f7f7f9;
 }
 
 .logo {
   position: relative;
-  height: 60px;
+  height: 55px;
   margin-top: 2px;
   margin-left: 60px;
   margin-right: 10px;
