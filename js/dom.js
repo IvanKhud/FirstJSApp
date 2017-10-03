@@ -31,6 +31,7 @@ function buttonPush() {
      document.getElementById("maxRowsPerPage").value = 5;
      document.getElementById("maxRowsPerPageForm").style.visibility = 'hidden';
      document.getElementById("pages").style.visibility = 'hidden';
+     document.getElementById("firstVisibleRowForm").style.visibility = 'hidden';
      document.getElementById("errorMessage").style.visibility = 'hidden';
      document.getElementById('generalTable').innerHTML = ""; 
      document.getElementById('statisticsTable').innerHTML = "";
