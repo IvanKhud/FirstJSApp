@@ -14,6 +14,7 @@ function onStart() {
   document.getElementById("maxRowsPerPageForm").style.visibility = 'hidden';
   document.getElementById("pages").style.visibility = 'hidden';
   document.getElementById("firstVisibleRowForm").style.visibility = 'hidden';
+  document.getElementById("errorMessage").style.visibility = 'hidden';
 }
 
 function buttonPush() {
