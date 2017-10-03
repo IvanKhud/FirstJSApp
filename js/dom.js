@@ -11,10 +11,16 @@ var dom = {
 window.onload = onStart;
 
 function onStart() {
-  document.getElementById("maxRowsPerPageForm").style.visibility = 'hidden';
-  document.getElementById("pages").style.visibility = 'hidden';
-  document.getElementById("firstVisibleRowForm").style.visibility = 'hidden';
-  document.getElementById("errorMessage").style.visibility = 'hidden';
+   document.getElementById("maxRowsPerPageForm").style.visibility = 'visible';
+   document.getElementById("pages").style.visibility = 'visible';
+   document.getElementById("firstVisibleRowForm").style.visibility = 'visible';
+   document.getElementById("firstVisibleRow").value = 1;
+   main();
+   var button1 = document.getElementById('mainBtn');
+   button1.innerHTML = 'Reset';
+   button1.className = 'btn btn-warning btn-block';
+   document.getElementById("errorMessage").style.visibility = 'hidden';
+   document.getElementById("startMessage").style.visibility = 'hidden';
 }
 
 function buttonPush() {
@@ -27,6 +33,7 @@ function buttonPush() {
    main();
    button1.innerHTML = 'Reset';
    button1.className = 'btn btn-warning btn-block';
+   document.getElementById("startMessage").style.visibility = 'hidden';
  }
    else {
      document.getElementById("maxRowsPerPage").value = 5;
@@ -38,6 +45,7 @@ function buttonPush() {
      document.getElementById('statisticsTable').innerHTML = "";
      button1.innerHTML = 'Start';
      button1.className = 'btn btn-success btn-block';
+     document.getElementById("startMessage").style.visibility = 'visible';
    }
   onBodyResize();
 } 

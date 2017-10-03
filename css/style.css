@@ -110,6 +110,12 @@
   left: 250px;
 }
 
+#startMessage {
+  position: absolute;
+  top: 100px;
+  left: 250px;
+}
+
 .rightTable {
   width: 200px;
 }
