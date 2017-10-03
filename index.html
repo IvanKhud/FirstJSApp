@@ -38,13 +38,15 @@
     </table>
 
     <div id="maxRowsPerPageForm">
-    <p>Max rows per page</p>
-    <select class="form-control" id="maxRowsPerPage" onchange="maxRowsPerPageOnChange()">	
-      <option value=5>5</option>
-      <option value=10>10</option>
-      <option value=20>20</option>
-      <option value=100>all</option>
-    </select>
+      <p>Max rows per page</p>
+      <select class="form-control" id="maxRowsPerPage" onchange="maxRowsPerPageOnChange()">	
+        <option value=5>5</option>
+        <option value=10>10</option>
+        <option value=20>20</option>
+        <option value=100>all</option>
+      </select>
+      <div class="alert alert-danger" id="errorMessage">
+      </div>
     </div>
     
     <div id="firstVisibleRowForm">
@@ -54,7 +56,6 @@
         <input type="text" class="form-control" id="firstVisibleRow" onchange="firstVisibleRowChange()"
         placeholder="......." aria-describedby="addon1">
       </div>
-      <div class="alert alert-danger" id="errorMessage"></div>
     </div>
 
     <div id="pages">
