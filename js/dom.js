@@ -116,6 +116,7 @@ function navButtonClick(direction) {
       dom.firstVisibleRow = 101 - dom.maxRowsPerPage;
       break;
   };
+  document.getElementById("firstVisibleRow").value = dom.firstVisibleRow;
   outputResults(dom.firstVisibleRow, dom.lastVisibleRow);
 }
 
