@@ -13,6 +13,7 @@ window.onload = onStart;
 function onStart() {
   document.getElementById("maxRowsPerPageForm").style.visibility = 'hidden';
   document.getElementById("pages").style.visibility = 'hidden';
+  document.getElementById("firstVisibleRowForm").style.visibility = 'hidden';
 }
 
 function buttonPush() {
@@ -20,6 +21,7 @@ function buttonPush() {
  if (button1.innerHTML == 'Start') {
    document.getElementById("maxRowsPerPageForm").style.visibility = 'visible';
    document.getElementById("pages").style.visibility = 'visible';
+   document.getElementById("firstVisibleRowForm").style.visibility = 'visible';
    main();
    button1.innerHTML = 'Reset';
    button1.className = 'btn btn-warning btn-block';
@@ -170,6 +172,45 @@ function onBodyResize() {
       document.getElementById("topBottomForm").style.display = "none"; 
     }
 }
+
+function firstVisibleRowChange() {
+    var typedFirstVisibleRow = + document.getElementById("firstVisibleRow").value;
+    if(typedFirstVisibleRow >= 1 && typedFirstVisibleRow <= 100) {
+      document.getElementById("errorMessage").style.visibility  = "hidden";
+      dom.firstVisibleRow = typedFirstVisibleRow;
+      if ((dom.firstVisibleRow + dom.maxRowsPerPage) > 100) {
+        dom.lastVisibleRow = 100;
+      }
+        else {
+          dom.lastVisibleRow = dom.firstVisibleRow + dom.maxRowsPerPage - 1;
+        } 
+      outputResults(dom.firstVisibleRow, dom.lastVisibleRow);   
+    } 
+      else {
+        document.getElementById("firstVisibleRow").value = "";
+        document.getElementById("errorMessage").style.visibility  = "visible";
+        makeErrorMessage(typedFirstVisibleRow); 
+      }; 
+}
+
+function makeErrorMessage(input) {
+    if (input < 0) {
+      document.getElementById("errorMessage").innerHTML  = 'You can start from "1" only';
+    } 
+      else if (input > 100) {
+        document.getElementById("errorMessage").innerHTML  = 'There are only 100 floors';
+      } 
+        else {
+          document.getElementById("errorMessage").innerHTML  = 'You can only enter a number';
+        };
+}
+
+
+
+
+
+
+
 
 
 

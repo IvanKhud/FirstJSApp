@@ -49,6 +49,16 @@
     </select>
     </div>
     
+    <div id="firstVisibleRowForm">
+      <p id="firstRowP">Start display from</p>
+      <div class="input-group input-group-sm">
+        <span class="input-group-addon" id="addon1">#</span>
+        <input type="text" class="form-control" id="firstVisibleRow" onchange="firstVisibleRowChange()"
+        placeholder="......." aria-describedby="addon1">
+      </div>
+      <div class="alert alert-danger" id="errorMessage"></div>
+    </div>
+
     <div id="pages">
       <ul class="pagination pagination-info" id="pagination">
         <li id="buttonFirst"><a href='#' onclick='navButtonClick("first")'>First</a></li>

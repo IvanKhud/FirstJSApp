@@ -75,13 +75,13 @@
   font-size: 15px;
 }
 
-#maxRowsPerPageForm {
+#maxRowsPerPageForm, #firstVisibleRowForm {
   position: relative;
   height: 32px;
   margin-top: 3px;
 }
 
-#maxRowsPerPageForm p {
+#maxRowsPerPageForm p, #firstVisibleRowForm p {
   float: left;
   margin-right: 5px;
   margin-top: 5px;
@@ -91,6 +91,23 @@
   width: 70px;
   height: 30px;
   font-size: 14px;
+}
+
+#firstVisibleRow {
+  width: 45px;
+  font-size: 14px;
+}
+
+.input-group-sm {
+  position: relative;
+  float: left;
+  width: 75px;
+}
+
+#errorMessage {
+  position: absolute;
+  top: 0px;
+  left: 250px;
 }
 
 .rightTable {
