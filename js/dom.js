@@ -198,7 +198,7 @@ function firstVisibleRowChange() {
 }
 
 function makeErrorMessage(input) {
-    if (input < 0) {
+    if (input < 1) {
       document.getElementById("errorMessage").innerHTML  = 'You can start from "1" only';
     } 
       else if (input > 100) {
