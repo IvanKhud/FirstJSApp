@@ -23,6 +23,7 @@ function buttonPush() {
    document.getElementById("maxRowsPerPageForm").style.visibility = 'visible';
    document.getElementById("pages").style.visibility = 'visible';
    document.getElementById("firstVisibleRowForm").style.visibility = 'visible';
+   document.getElementById("firstVisibleRow").value = 1;
    main();
    button1.innerHTML = 'Reset';
    button1.className = 'btn btn-warning btn-block';
