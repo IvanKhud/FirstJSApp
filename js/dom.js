@@ -14,25 +14,23 @@ var dom = {
     document.getElementById("firstVisibleRowForm").style.visibility = 'visible';
     document.getElementById("firstVisibleRow").value = 1;
     main();
-    var button1 = document.getElementById('mainBtn');
-    button1.innerHTML = 'Reset';
-    button1.className = 'btn btn-danger btn-block';
+    var button = document.getElementById('mainButton');
+    button.innerHTML = 'Reset';
+    button.className = 'btn btn-danger btn-block';
     document.getElementById("errorMessage").style.visibility = 'hidden';
     document.getElementById("startMessage").style.visibility = 'hidden';
   },
 
-
-
   buttonPush: function() {
-    var button1 = document.getElementById('mainBtn');
-    if (button1.innerHTML == 'Start') {
+    var button = document.getElementById('mainButton');
+    if (button.innerHTML == 'Start') {
      document.getElementById("maxRowsPerPageForm").style.visibility = 'visible';
      document.getElementById("pages").style.visibility = 'visible';
      document.getElementById("firstVisibleRowForm").style.visibility = 'visible';
      document.getElementById("firstVisibleRow").value = 1;
      main();
-     button1.innerHTML = 'Reset';
-     button1.className = 'btn btn-danger btn-block';
+     button.innerHTML = 'Reset';
+     button.className = 'btn btn-danger btn-block';
      document.getElementById("startMessage").style.visibility = 'hidden';
     }
       else {
@@ -43,8 +41,8 @@ var dom = {
         document.getElementById("errorMessage").style.visibility = 'hidden';
         document.getElementById('generalTable').innerHTML = ""; 
         document.getElementById('statisticsTable').innerHTML = "";
-        button1.innerHTML = 'Start';
-        button1.className = 'btn btn-success btn-block';
+        button.innerHTML = 'Start';
+        button.className = 'btn btn-success btn-block';
         document.getElementById("startMessage").style.visibility = 'visible';
       };
     dom.onBodyResize();
@@ -218,4 +216,4 @@ var dom = {
 
 window.onload = dom.onStart;
 
-window.onscroll = function() {dom.onScrollCheck()};
+window.onscroll = dom.onScrollCheck;
