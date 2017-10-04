@@ -23,7 +23,7 @@ function main() {
     }
   }
   dom.averageThrows = totalThrows/100;
-  outputResults(dom.firstVisibleRow, dom.lastVisibleRow);
+  dom.outputResults(dom.firstVisibleRow, dom.lastVisibleRow);
 }
 
   

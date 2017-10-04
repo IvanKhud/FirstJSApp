@@ -9,10 +9,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body onresize="onBodyResize()">
+<body onresize="dom.onBodyResize()">
   <div id="topBottomForm">
-    <a href="javascript:" id="return-to-top" onclick="toTop()"><i class="glyphicon glyphicon-menu-up"></i></a>
-    <a href="javascript:" id="return-to-bottom" onclick="toBottom()"><i class="glyphicon glyphicon-menu-down"></i></a>
+    <a href="javascript:" id="return-to-top" onclick="dom.toTop()"><i class="glyphicon glyphicon-menu-up"></i></a>
+    <a href="javascript:" id="return-to-bottom" onclick="dom.toBottom()"><i class="glyphicon glyphicon-menu-down"></i></a>
   </div>
 
   <div class="container-fluid header">
@@ -41,7 +41,7 @@
     </div>
     <div id="maxRowsPerPageForm">
       <p>Max rows per page</p>
-      <select class="form-control" id="maxRowsPerPage" onchange="maxRowsPerPageOnChange()">	
+      <select class="form-control" id="maxRowsPerPage" onchange="dom.maxRowsPerPageOnChange()">	
         <option value=5>5</option>
         <option value=10>10</option>
         <option value=20>20</option>
@@ -55,17 +55,17 @@
       <p id="firstRowP">Start display from</p>
       <div class="input-group input-group-sm">
         <span class="input-group-addon" id="addon1">#</span>
-        <input type="text" class="form-control" id="firstVisibleRow" onchange="firstVisibleRowChange()"
+        <input type="text" class="form-control" id="firstVisibleRow" onchange="dom.firstVisibleRowChange()"
         placeholder="......." aria-describedby="addon1">
       </div>
     </div>
 
     <div id="pages">
       <ul class="pagination pagination-info" id="pagination">
-        <li id="buttonFirst"><a href='#' onclick='navButtonClick("first")'>First</a></li>
-        <li id="buttonPrevious"><a href='#' onclick='navButtonClick("previous")'>Previous</a></li>
-        <li id="buttonNext"><a href='#' onclick='navButtonClick("next")'>Next</a></li>
-        <li id="buttonLast"><a href='#' onclick='navButtonClick("last")'>Last</a></li>
+        <li id="buttonFirst"><a href='#' onclick='dom.navButtonClick("first")'>First</a></li>
+        <li id="buttonPrevious"><a href='#' onclick='dom.navButtonClick("previous")'>Previous</a></li>
+        <li id="buttonNext"><a href='#' onclick='dom.navButtonClick("next")'>Next</a></li>
+        <li id="buttonLast"><a href='#' onclick='dom.navButtonClick("last")'>Last</a></li>
       </ul>
     </div>
 
@@ -81,7 +81,7 @@
       <tbody id="statisticsTable">
       </tbody>  
     </table>
-    <button id="mainBtn" type="button" class="btn btn-success btn-block" onclick="buttonPush()">Start</button>
+    <button id="mainBtn" type="button" class="btn btn-success btn-block" onclick="dom.buttonPush()">Start</button>
   </div>
 
   </div>
