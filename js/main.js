@@ -16,10 +16,10 @@ function main() {
     dom.results[i] = totalSteps;
     totalThrows += totalSteps;
     if (totalSteps < dom.minThrows) {
-    dom.minThrows = totalSteps;
+      dom.minThrows = totalSteps;
     }
     if (totalSteps > dom.maxThrows) {
-    dom.maxThrows = totalSteps;
+      dom.maxThrows = totalSteps;
     }
   }
   dom.averageThrows = totalThrows/100;

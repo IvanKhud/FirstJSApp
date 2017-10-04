@@ -14,8 +14,7 @@ function firstThrow(firstStep, floor) {
     if (currentFloor >= floor) {
       isFirstBallSafe = false;
       firstResult.unsafe = currentFloor; 
-    }
-    else {
+    } else {
       currentStep--;
       firstResult.safe = currentFloor;
     }  
@@ -29,8 +28,7 @@ function secondThrow(safe, unsafe, floor) {
     steps++; 
     if (currentFloor === floor) {
       unsafe = currentFloor;
-    }
-    else {
+    } else {
       currentFloor++;
     } 
   }
