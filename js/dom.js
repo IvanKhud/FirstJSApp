@@ -16,7 +16,7 @@ var dom = {
     main();
     var button1 = document.getElementById('mainBtn');
     button1.innerHTML = 'Reset';
-    button1.className = 'btn btn-warning btn-block';
+    button1.className = 'btn btn-danger btn-block';
     document.getElementById("errorMessage").style.visibility = 'hidden';
     document.getElementById("startMessage").style.visibility = 'hidden';
   },
@@ -32,7 +32,7 @@ var dom = {
      document.getElementById("firstVisibleRow").value = 1;
      main();
      button1.innerHTML = 'Reset';
-     button1.className = 'btn btn-warning btn-block';
+     button1.className = 'btn btn-danger btn-block';
      document.getElementById("startMessage").style.visibility = 'hidden';
     }
       else {
@@ -149,16 +149,16 @@ var dom = {
 
   onScrollCheck: function() {
     if (window.pageYOffset > 50) {
-      document.getElementById("return-to-top").style.display = "inline";
+      document.getElementById("returnToTop").style.display = "inline";
     }
       else {
-        document.getElementById("return-to-top").style.display = "none";
+        document.getElementById("returnToTop").style.display = "none";
       };
     if (window.pageYOffset < (document.body.scrollHeight - document.body.clientHeight - 50)) {
-      document.getElementById("return-to-bottom").style.display = "inline";
+      document.getElementById("returnToBottom").style.display = "inline";
     }
       else {
-        document.getElementById("return-to-bottom").style.display = "none";
+        document.getElementById("returnToBottom").style.display = "none";
       };
   },
 
@@ -176,8 +176,8 @@ var dom = {
       dom.onScrollCheck();
     }
       else {
-        document.getElementById("return-to-bottom").style.display = "none";  
-        document.getElementById("return-to-top").style.display = "none"; 
+        document.getElementById("returnToBottom").style.display = "none";  
+        document.getElementById("returnToTop").style.display = "none"; 
         document.getElementById("topBottomForm").style.display = "none"; 
       };
   },

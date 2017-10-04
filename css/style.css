@@ -13,7 +13,7 @@
   height: 65px;
 }
 
-.headerContent {
+.header-content {
   float: left;
   position: relative;
   margin: auto;
@@ -31,13 +31,13 @@
   float: left;
 }
 
-.generalContainer {
+.general-container {
   position: relative;
   width: 800px;
 }
 
-.mainContent,
-.rightSidebar {
+.main-content,
+.right-sidebar {
   position: relative;
   display: inline-block;
   background-color: #f7f7f9;
@@ -48,31 +48,36 @@
   padding: 10px;
 }
 
-.mainContent {
+.main-content {
   width: 750px;
   float:left;
 }
 
-.rightSidebar {
-  float: right;
+.right-sidebar {
+  float: left;
+  margin-left: 10px;
   width: 320px;
 }
 
-.mainTable,
-.rightTable {
+.main-table,
+.right-table {
   background-color: white;
   text-align: center;
   font-size: 15px;
 }
 
-.mainTable {
+.main-table th,
+.right-table th {
+  text-align: center;
+  font-size: 15px;
+}
+
+.main-table {
   width: 500px;
 }
 
-.mainTable th,
-.rightTable th {
-  text-align: center;
-  font-size: 15px;
+.right-table {
+  width: 200px;
 }
 
 #maxRowsPerPageForm, #firstVisibleRowForm {
@@ -116,16 +121,12 @@
   left: 250px;
 }
 
-.rightTable {
-  width: 200px;
-}
-
 .disabled {
   pointer-events: none;
 }
 
-#return-to-top,
-#return-to-bottom {
+#returnToTop,
+#returnToBottom {
   color: rgb(0, 0, 0);
   position: fixed;
   right: 22px;
@@ -143,10 +144,10 @@
   border-radius: 25px;
 }
 
-#return-to-top {
+#returnToTop {
   bottom: 37px;
 }
 
-#return-to-bottom {
+#returnToBottom {
   bottom: 8px;
 }
