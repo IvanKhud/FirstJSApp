@@ -23,6 +23,7 @@ var dom = {
 
   buttonPush: function() {
     var button = document.getElementById('mainButton');
+
     if (button.innerHTML == 'Start') {
      document.getElementById("maxRowsPerPageForm").style.visibility = 'visible';
      document.getElementById("pages").style.visibility = 'visible';
@@ -44,6 +45,7 @@ var dom = {
       button.className = 'btn btn-success btn-block';
       document.getElementById("startMessage").style.visibility = 'visible';
     }
+
     dom.onBodyResize();
   }, 
 
@@ -52,12 +54,14 @@ var dom = {
   outputResults: function(first, last) {
     var tableString = "";
     document.getElementById('generalTable').innerHTML = "";
+
     for (i = first; i <= last; i ++) {
       tableString += "<tr>";
       tableString += "<td>" + i + "</td>";
       tableString += "<td>" + dom.results[i] + "</td>";
       tableString += "</tr>";
     }
+
     document.getElementById('generalTable').innerHTML = tableString;
     dom.outputStatistics();
     dom.checkButtons();
@@ -85,17 +89,20 @@ var dom = {
 
   maxRowsPerPageOnChange: function() {
     dom.maxRowsPerPage = parseInt(document.getElementById("maxRowsPerPage").value);
+
     if ((dom.firstVisibleRow + dom.maxRowsPerPage) > 100) {
       dom.lastVisibleRow = 100;
       dom.firstVisibleRow = 101 - dom.maxRowsPerPage;
     } else {
       dom.lastVisibleRow = dom.firstVisibleRow + dom.maxRowsPerPage - 1;
     } 
+
     dom.outputResults(dom.firstVisibleRow, dom.lastVisibleRow);
     dom.onBodyResize();
   },
 
   navButtonClick: function(direction) {
+
     switch (direction) {
       case 'first':
         dom.firstVisibleRow = 1;
@@ -120,11 +127,13 @@ var dom = {
         dom.firstVisibleRow = 101 - dom.maxRowsPerPage;
         break;
     }
+
     document.getElementById("firstVisibleRow").value = dom.firstVisibleRow;
     dom.outputResults(dom.firstVisibleRow, dom.lastVisibleRow);
   },
 
   checkButtons: function(){
+
     if (dom.firstVisibleRow == 1) {
       document.getElementById("buttonFirst").className = "disabled";
       document.getElementById("buttonPrevious").className = "disabled";
@@ -132,6 +141,7 @@ var dom = {
       document.getElementById("buttonFirst").className = "unDisabled";
       document.getElementById("buttonPrevious").className = "unDisabled";
     }
+
     if (dom.lastVisibleRow == 100) {
       document.getElementById("buttonNext").className = "disabled";
       document.getElementById("buttonLast").className = "disabled";
@@ -139,19 +149,23 @@ var dom = {
     document.getElementById("buttonNext").className = "unDisabled";
     document.getElementById("buttonLast").className = "unDisabled";
     }
+
   },
 
   onScrollCheck: function() {
+
     if (window.pageYOffset > 50) {
       document.getElementById("returnToTop").style.display = "inline";
     } else {
       document.getElementById("returnToTop").style.display = "none";
     }
+
     if (window.pageYOffset < (document.body.scrollHeight - document.body.clientHeight - 50)) {
       document.getElementById("returnToBottom").style.display = "inline";
     } else {
       document.getElementById("returnToBottom").style.display = "none";
     }
+
   },
 
   toTop: function() {
@@ -163,6 +177,7 @@ var dom = {
   },
 
   onBodyResize: function() {
+
     if (document.body.scrollHeight > document.body.clientHeight) {
       document.getElementById("topBottomForm").style.display = "inline"; 
       dom.onScrollCheck();
@@ -171,27 +186,33 @@ var dom = {
       document.getElementById("returnToTop").style.display = "none"; 
       document.getElementById("topBottomForm").style.display = "none"; 
     }
+
   },
 
   firstVisibleRowChange: function() {
     var typedFirstVisibleRow = + document.getElementById("firstVisibleRow").value;
+
     if(typedFirstVisibleRow >= 1 && typedFirstVisibleRow <= 100) {
       document.getElementById("errorMessage").style.visibility  = "hidden";
       dom.firstVisibleRow = typedFirstVisibleRow;
+
       if ((dom.firstVisibleRow + dom.maxRowsPerPage) > 100) {
         dom.lastVisibleRow = 100;
       } else {
         dom.lastVisibleRow = dom.firstVisibleRow + dom.maxRowsPerPage - 1;
       }
+
       dom.outputResults(dom.firstVisibleRow, dom.lastVisibleRow);   
     } else {
       document.getElementById("firstVisibleRow").value = "";
       document.getElementById("errorMessage").style.visibility  = "visible";
       dom.makeErrorMessage(typedFirstVisibleRow); 
     }
+
   },
 
   makeErrorMessage: function(input) {
+
     if (input < 1) {
       document.getElementById("errorMessage").innerHTML  = 'You can start from "1" only';
     } else if (input > 100) {
@@ -199,6 +220,7 @@ var dom = {
     } else {
       document.getElementById("errorMessage").innerHTML  = 'You can only enter a number';
     }
+
   }
 
 }
