@@ -161,3 +161,27 @@
 #returnToBottom {
   bottom: 8px;
 }
+
+@media screen and (max-width: 768px) {
+
+.header-content h3 {
+  float: left;
+  font-size: 18px;
+}
+
+.logo {
+  height: 45px;
+  margin-left: 5%;
+}
+
+.general-container {
+  position: relative;
+  width: 90%;
+}
+
+.header-content {
+  float: left;
+  margin-left: 0%;
+}
+
+}
