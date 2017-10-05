@@ -39,8 +39,8 @@ var dom = {
       document.getElementById("pages").style.visibility = 'hidden';
       document.getElementById("firstVisibleRowForm").style.visibility = 'hidden';
       document.getElementById("errorMessage").style.visibility = 'hidden';
-      document.getElementById('generalTable').innerHTML = ""; 
-      document.getElementById('statisticsTable').innerHTML = "";
+      document.getElementById('generalTable').getElementsByTagName('tbody')[0].innerHTML = "";
+      document.getElementById('statisticsTable').getElementsByTagName('tbody')[0].innerHTML = "";
       button.innerHTML = 'Start';
       button.className = 'btn btn-success btn-block';
       document.getElementById("startMessage").style.visibility = 'visible';
@@ -52,17 +52,19 @@ var dom = {
 
 
   outputResults: function(first, last) {
-    var tableString = "";
-    document.getElementById('generalTable').innerHTML = "";
+    document.getElementById('generalTable').getElementsByTagName('tbody')[0].innerHTML = "";
+      var tableRef = document.getElementById('generalTable').getElementsByTagName('tbody')[0];
 
-    for (i = first; i <= last; i ++) {
-      tableString += "<tr>";
-      tableString += "<td>" + i + "</td>";
-      tableString += "<td>" + dom.results[i] + "</td>";
-      tableString += "</tr>";
-    }
+      for (i = first; i <= last; i ++) {
+        var newRow   = tableRef.insertRow(tableRef.rows.length);
+        var newCell1  = newRow.insertCell(0);
+        var newText1  = document.createTextNode(i);
+        newCell1.appendChild(newText1);
+        var newCell2  = newRow.insertCell(1); 
+        var newText2  = document.createTextNode(dom.results[i]);
+        newCell2.appendChild(newText2);
+      }
 
-    document.getElementById('generalTable').innerHTML = tableString;
     dom.outputStatistics();
     dom.checkButtons();
     dom.onBodyResize();
@@ -70,21 +72,31 @@ var dom = {
 
 
   outputStatistics: function() {
-    var tableString = "";
-    document.getElementById('statisticsTable').innerHTML = "";
-    tableString += "<tr>";
-    tableString += "<td>" + 'Minimum' + "</td>";
-    tableString += "<td>" + dom.minThrows + "</td>";
-    tableString += "</tr>";
-    tableString += "<tr>";
-    tableString += "<td>" + 'Maximum' + "</td>";
-    tableString += "<td>" + dom.maxThrows + "</td>";
-    tableString += "</tr>";
-    tableString += "<tr>";
-    tableString += "<td>" + 'Average' + "</td>";
-    tableString += "<td>" + dom.averageThrows + "</td>";
-    tableString += "</tr>";
-    document.getElementById('statisticsTable').innerHTML = tableString;
+    var tableStat = document.getElementById('statisticsTable').getElementsByTagName('tbody')[0];
+    tableStat.innerHTML = "";
+        var newRow1   = tableStat.insertRow(tableStat.rows.length);
+        var newCell11  = newRow1.insertCell(0);
+        var newText11  = document.createTextNode('Minimum');
+        newCell11.appendChild(newText11);
+        var newCell12  = newRow1.insertCell(1); 
+        var newText12  = document.createTextNode(dom.minThrows);
+        newCell12.appendChild(newText12);
+ 
+        var newRow2   = tableStat.insertRow(tableStat.rows.length);
+        var newCell21  = newRow2.insertCell(0);
+        var newText21  = document.createTextNode('Maximum');
+        newCell21.appendChild(newText21);
+        var newCell22  = newRow2.insertCell(1); 
+        var newText22  = document.createTextNode(dom.maxThrows);
+        newCell22.appendChild(newText22); 
+
+        var newRow3   = tableStat.insertRow(tableStat.rows.length);
+        var newCell31  = newRow3.insertCell(0);
+        var newText31  = document.createTextNode('Average');
+        newCell31.appendChild(newText31);
+        var newCell32  = newRow3.insertCell(1); 
+        var newText32  = document.createTextNode(dom.averageThrows);
+        newCell32.appendChild(newText32); 
   },
 
   maxRowsPerPageOnChange: function() {

@@ -27,14 +27,14 @@
   <div class="container general-container">
 
   <div class="main-content"> 
-    <table class="table table-bordered main-table">
+    <table class="table table-bordered main-table" id="generalTable">
       <thead>
         <tr>
           <th>Floor</th>
           <th>Attempts count</th>
         </tr>
       </thead>
-      <tbody id="generalTable">
+      <tbody>
       </tbody>  
     </table>
     <div class="alert alert-danger" id="startMessage">
@@ -73,13 +73,13 @@
   </div>
 
   <div class="right-sidebar">
-    <table class="table table-bordered right-table">
+    <table class="table table-bordered right-table" id="statisticsTable">
       <thead>
         <tr>
           <th colspan='2'>Statistics</th>
         </tr>
       </thead>
-      <tbody id="statisticsTable">
+      <tbody>
       </tbody>  
     </table>
     <button id="mainButton" type="button" class="btn btn-success btn-block" onclick="dom.buttonPush()">Start</button>
